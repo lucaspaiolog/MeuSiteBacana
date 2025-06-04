@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+
+{% block conteudo %}
+<h1>Produtos</h1>
+{% comment %} <a href="{% url 'cadastrar_produto' %}">Cadastrar Novo Produto</a> {% endcomment %}
+
+{% for prod in produtos %}
+  <img src="{{prod.image}}" width="50px">
+  <h3>{{prod.title}}</h3>
+  <p>R$ {{prod.price}}</p>
+  <hr>
+{% endfor %}
+{% endblock %}

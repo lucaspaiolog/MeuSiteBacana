@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block titulo %}Meu Site{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'style_produto.css' %}" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Meu Site</div>
+      <ul class="nav-links">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="#">Quem Somos</a></li>
+        <li><a href="{% url 'listar_produtos' %}">Produtos</a></li>
+        <li><a href="{% url 'listar_produtos' %}">Cards</a></li>
+      </ul>
+      <a href="{% url 'login' %}" class="btn-login">Entrar</a>
+    </nav>
+
+    <main>
+      {% block main %} {% block conteudo %}{% endblock %} {% endblock %}
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Meu Site - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+function buscarCEP(cep) {
+  cep = cep.replace(/\D/g, '');
+  if (cep.length !== 8) return;
+
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then(response => response.json())
+    .then(data => {
+      if (!data.erro) {
+        document.querySelector('[name="logradouro"]').value = data.logradouro || '';
+        document.querySelector('[name="bairro"]').value = data.bairro || '';
+        document.querySelector('[name="localidade"]').value = data.localidade || '';
+        document.querySelector('[name="uf"]').value = data.uf || '';
+      }
+    });
+}
+</script>
+
+  </body>
+</html>
