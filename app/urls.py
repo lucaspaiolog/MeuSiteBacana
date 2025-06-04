@@ -19,12 +19,14 @@ urlpatterns = [
          name="editarUsuario"),
     
     path('produtos/', views.listar_produtos, name='listar_produtos'),
+
+    path('produtos/adicionar/', views.adicionar_produto, name='adicionar_produto'),
+
+     path('produtos/novo/', views.cadastrar_produto, name='cadastrar_produto'),
     
-#     path('produtos/novo/', views.cadastrar_produto, name='cadastrar_produto'),
+     path('produtos/editar/<int:pk>/', views.editar_produto, name='editar_produto'),
     
-#     path('produtos/editar/<int:pk>/', views.editar_produto, name='editar_produto'),
-    
-#     path('produtos/excluir/<int:pk>/', views.excluir_produto, name='excluir_produto'),
+     path('produtos/excluir/<int:pk>/', views.excluir_produto, name='excluir_produto'),
     
     path ('login', views.login, name="login"),
     

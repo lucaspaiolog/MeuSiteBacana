@@ -51,38 +51,38 @@ def listar_produtos(request):
     # produtos = Produto.objects.all()
     return render(request, 'produtos/listar.html', {'produtos': produtosapi})
 
-# def cadastrar_produto(request):
-#     sessao = verificar_sessao(request)
-#     if sessao: return sessao
+def cadastrar_produto(request):
+     sessao = verificar_sessao(request)
+     if sessao: return sessao
 
-#     if request.method == 'POST':
-#         form = ProdutoForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('listar_produtos')
-#     else:
-#         form = ProdutoForm()
+     if request.method == 'POST':
+         form = ProdutoForm(request.POST, request.FILES)
+         if form.is_valid():
+             form.save()
+             return redirect('listar_produtos')
+     else:
+         form = ProdutoForm()
 
-#     return render(request, 'produtos/form.html', {'form': form, 'titulo': 'Cadastrar Produto'})
+     return render(request, 'produtos/form.html', {'form': form, 'titulo': 'Cadastrar Produto'})
 
 
-# def editar_produto(request, pk):
-#     produto = get_object_or_404(Produto, pk=pk)
-#     if request.method == 'POST':
-#         form = ProdutoForm(request.POST, request.FILES, instance=produto)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('listar_produtos')
-#     else:
-#         form = ProdutoForm(instance=produto)
-#     return render(request, 'produtos/form.html', {'form': form, 'titulo': 'Editar Produto'})
+ def editar_produto(request, pk):
+     produto = get_object_or_404(Produto, pk=pk)
+     if request.method == 'POST':
+         form = ProdutoForm(request.POST, request.FILES, instance=produto)
+        if form.is_valid():
+             form.save()
+             return redirect('listar_produtos')
+     else:
+        form = ProdutoForm(instance=produto)
+     return render(request, 'produtos/form.html', {'form': form, 'titulo': 'Editar Produto'})
 
-# def excluir_produto(request, pk):
-#     produto = get_object_or_404(Produto, pk=pk)
-#     if request.method == 'POST':
-#         produto.delete()
-#         return redirect('listar_produtos')
-#     return render(request, 'produtos/confirmar_exclusao.html', {'produto': produto})
+ def excluir_produto(request, pk):
+     produto = get_object_or_404(Produto, pk=pk)
+     if request.method == 'POST':
+         produto.delete()
+         return redirect('listar_produtos')
+    return render(request, 'produtos/confirmar_exclusao.html', {'produto': produto})
 
 def login(request):
     frmLogin = formLogin(request.POST or None)

@@ -1,0 +1,14 @@
+{% extends 'template.html' %}
+{% load static %}
+{% block titulo %}Adicionar Produto{% endblock %}
+
+{% block conteudo %}
+<div class="container mt-5">
+    <h2>Adicionar Novo Produto</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-success" type="submit">Salvar</button>
+    </form>
+</div>
+{% endblock %}

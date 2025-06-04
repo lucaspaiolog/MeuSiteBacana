@@ -51,9 +51,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Diretórios de mídia (arquivos carregados pelos usuários)
-MEDIA_URL = '/media/'  # URL que será utilizada para acessar as imagens
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Diretório físico onde as imagens serão salvas
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+MEDIA_URL = '/media/'  
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
 
 ROOT_URLCONF = 'projeto.urls'
