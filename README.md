@@ -32,13 +32,13 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web III** do c
 
 2. Instale as dependências:
  
-   pip install django
+   pip install django<br>
    pip install pillow 
 
 
 3. Aplique as migrações:
   
-   python manage.py makemigrations
+   python manage.py makemigrations<br>
    python manage.py migrate
  
 
