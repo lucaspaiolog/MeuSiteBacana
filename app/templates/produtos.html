@@ -1,12 +1,58 @@
-{% extends "template.html" %}
+{% extends 'template.html' %}
+{% load static %}
+{% block titulo %}Produtos{% endblock %}
 
-{% block titulo %}Home{% endblock %}
+{% block conteudo %}
+<div class="container mt-5">
+  <!-- ====== SEÇÃO MAIS VENDIDOS ====== -->
+  {% if produtos_destaque %}
+    <h2 class="mb-4">Mais Vendidos</h2>
+    <div class="row justify-content-center">
+      {% for produto in produtos_destaque %}
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="card shadow-sm h-100" style="width: 250px;">
+            {% if produto.foto %}
+              <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.nome }}" class="produto-imagem">
+            {% endif %}
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ produto.nome }}</h5>
+              <p class="card-text text-success"><strong>R$ {{ produto.preco }}</strong></p>
+              <div class="mt-auto">
+                <a href="{% url 'checkout' produto.id %}" class="btn btn-success">Comprar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-muted">Nenhum produto em destaque</p>
+  {% endif %}
 
-{% block main %}
-    <section class="hero">
-        
-        <h1>    Produtos    </h1>
-        <a href="{% url 'editar_produto' produto.id %}" class="btn btn-warning">Editar</a>
-  
-    </section>
+  <hr class="my-5">
+
+  <!-- ====== SEÇÃO PRODUTOS INTERNACIONAIS (GALERIA) ====== -->
+  <h2 class="mb-4">Produtos Internacionais</h2>
+  <div class="row">
+    {% for produto in produtos_galeria %}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm" style="width: 235px;">
+          {% if produto.foto %}
+            <img src="{{ produto.foto.url }}" class="card-img-top" alt="{{ produto.nome }}" class="produto-imagem">
+          {% endif %}
+          <div class="card-body d-flex flex-column">
+            <h6 class="card-title">{{ produto.nome }}</h6>
+            <p class="card-text text-success mb-3"><strong>R$ {{ produto.preco }}</strong></p>
+            <div class="mt-auto">
+              <a href="{% url 'checkout' produto.id %}" class="btn btn-success btn-sm">Comprar</a>
+                        </div>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-muted">Nenhum produto cadastrado</p>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
+

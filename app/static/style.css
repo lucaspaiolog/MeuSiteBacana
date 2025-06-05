@@ -1,3 +1,4 @@
+
 /* Reset e base */
 * {
   margin: 0;
@@ -19,12 +20,11 @@ main {
   padding: 20px;
 }
 
-/* Navbar moderna */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #8fd19e; /* VERDE CLARO */
+  background-color: #198754;
   padding: 20px 30px;
   position: fixed;
   width: 100%;
@@ -55,11 +55,10 @@ main {
 }
 
 .nav-links a:hover {
-  background-color: #76c48f;
+  background-color: #198754;
   border-radius: 8px;
 }
 
-/* Botões */
 .btn-login,
 .btn-cadastro {
   padding: 12px 24px;
@@ -90,7 +89,6 @@ main {
   background-color: #388e3c;
 }
 
-/* Hero section */
 .hero {
   text-align: center;
   padding: 120px 20px;
@@ -106,16 +104,14 @@ main {
   margin: 30px 0;
 }
 
-/* Footer */
 footer {
-  background-color: #8fd19e; /* VERDE CLARO */
-  color: #333;
+  background-color: #198754;
+  color: #fff;
   text-align: center;
   padding: 20px;
   margin-top: 50px;
 }
 
-/* Tabela */
 table {
   width: 90%;
   margin: 60px auto;
@@ -123,4 +119,33 @@ table {
   background-color: white;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: left;
+}
+th {
+  background-color: #f0f0f0;
+}
+
+.produto-imagem {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.produto-card {
+  width: 240px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 10px;
+  display: inline-block;
+  vertical-align: top;
 }

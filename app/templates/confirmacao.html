@@ -1,0 +1,12 @@
+
+{% extends "template.html" %}
+{% block titulo %}Compra Confirmada{% endblock %}
+
+{% block conteudo %}
+<div class="container mt-5 text-center">
+    <h2>Compra realizada com sucesso!</h2>
+    <p>Produto: {{ venda.produto.nome }}</p>
+    <p>Preço: R$ {{ venda.preco_venda }}</p>
+    <p>Data: {{ venda.data_compra|date:"d/m/Y H:i" }}</p>
+</div>
+{% endblock %}

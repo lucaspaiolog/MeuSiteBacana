@@ -1,0 +1,15 @@
+{% extends "template.html" %}
+{% block titulo %}Confirmação de Exclusão{% endblock %}
+
+{% block conteudo %}
+<div class="container mt-5">
+  <h2>Excluir Usuário</h2>
+  <p>Tem certeza que deseja excluir o usuário <strong>{{ usuario.nome }}</strong> ({{ usuario.email }})?</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sim, excluir</button>
+    <a href="{% url 'exibirUsuarios' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+{% endblock %}

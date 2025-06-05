@@ -1,0 +1,45 @@
+{% extends 'template.html' %}
+{% block titulo %}Gráfico de Estoque{% endblock %}
+
+{% block conteudo %}
+<div class="container mt-4">
+  <h2 class="mb-4">Gráfico de Estoque</h2>
+  <canvas id="estoqueChart" width="400" height="200"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  // Quando a página carregar, buscar os dados em JSON e montar o gráfico:
+  document.addEventListener('DOMContentLoaded', function() {
+    fetch("{% url 'grafico_estoque_json' %}")
+      .then(response => response.json())
+      .then(data => {
+        const ctx = document.getElementById('estoqueChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels, 
+            datasets: [{
+              label: 'Quantidade em estoque',
+              data: data.valores,
+              backgroundColor: 'rgba(75, 192, 192, 0.7)'
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      })
+      .catch(err => console.error("Erro ao buscar dados do gráfico de estoque:", err));
+  });
+</script>
+{% endblock %}
+
+
+
+
+
+

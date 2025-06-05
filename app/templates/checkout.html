@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+
+{% block titulo %}
+Checkout
+{% endblock %}
+
+{% block conteudo %}
+<div class="container mt-5">
+  <h2 class="mb-4">Finalizar Compra</h2>
+
+  {# Exibe dados do produto e do usuário logado #}
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <h5 class="card-title">{{ produto.nome }}</h5>
+      <p class="card-text text-success"><strong>R$ {{ produto.preco }}</strong></p>
+      <hr>
+      <p><strong>Comprador:</strong> {{ usuario.nome }} &ndash; {{ usuario.email }}</p>
+    </div>
+  </div>
+
+  {# Formulário de compra (VendaForm) #}
+  <form method="post" class="card p-4 shadow-sm bg-white">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success btn-block">Confirmar Compra</button>
+  </form>
+</div>
+{% endblock %}

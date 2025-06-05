@@ -1,0 +1,40 @@
+{% extends 'template.html' %}
+{% block titulo %}Gráfico de Vendas{% endblock %}
+
+{% block conteudo %}
+<div class="container mt-4">
+  <h2 class="mb-4">Gráfico de Vendas por Dia</h2>
+  <canvas id="vendasChart" width="400" height="200"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    fetch("{% url 'grafico_vendas_json' %}")
+      .then(response => response.json())
+      .then(data => {
+        const ctx = document.getElementById('vendasChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',  // ou 'bar', conforme preferir
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: 'Valor total de vendas',
+              data: data.valores,
+              borderColor: 'rgba(54, 162, 235, 0.7)',
+              fill: false
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      })
+      .catch(err => console.error("Erro ao buscar dados do gráfico de vendas:", err));
+  });
+</script>
+{% endblock %}
+

@@ -37,3 +37,11 @@ class ProdutoForm(forms.ModelForm):
             }
     foto = forms.ImageField(widget=forms.FileInput(attrs={'accept': 'image/*'}))
 
+
+
+from .models import Venda
+
+class VendaForm(forms.ModelForm):
+    class Meta:
+        model = Venda
+        fields = ['numero_cartao', 'validade', 'cvv']

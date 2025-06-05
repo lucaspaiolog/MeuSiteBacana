@@ -1,0 +1,15 @@
+{% extends 'template.html' %}
+
+{% block conteudo %}
+<div class="container mt-4">
+    <h2 class="mb-4">Editar Produto</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="bg-white p-4 rounded shadow-sm">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-success">Salvar Alterações</button>
+        <a href="{% url 'listar_produtos' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

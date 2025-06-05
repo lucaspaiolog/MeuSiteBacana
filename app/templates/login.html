@@ -1,16 +1,28 @@
 {% extends "template.html" %}
 
 {% block titulo %}
-  Novo Usuario
+| Login
 {% endblock %}
 
 {% block conteudo %}
   <h1>Login</h1>
+
+  <!-- Exibe mensagens de erro (se houver) -->
+  {% if messages %}
+    {% for msg in messages %}
+      <div class="alert alert-danger">{{ msg }}</div>
+    {% endfor %}
+  {% endif %}
+
+  <!-- Formulário de login -->
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Logar">
+    {{ form.as_p }}   <!-- aqui serão renderizados o campo email e senha -->
+    <button type="submit" class="btn btn-success">Logar</button>
   </form>
 
-  <p>Não tem cadastro? <a href="{% url 'addUsuario' %}">Cadastre-se</a></p>
+  <p class="mt-3">
+    Não tem cadastro? 
+    <a href="{% url 'addUsuario' %}">Cadastre-se</a>
+  </p>
 {% endblock %}
