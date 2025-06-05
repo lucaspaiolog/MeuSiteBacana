@@ -25,9 +25,11 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web III** do c
 
 ## 🚀 Como executar o projeto
 
+--- Em todos os comandos se atentar a qual versão do python você tem instalada na sua máquina (python, python3 e py podem funcionar) ---
+
 1. Crie um ambiente virtual:
 
-   python3 -m venv ambienteVirtual  <--- Em todos os comandos se atentar a qual versão do python você tem instalada na sua máquina (python, python3 e py podem funcionar)<br>
+   python3 -m venv ambienteVirtual<br>
    ambienteVirtual\Scripts\activate
 
 2. Instale as dependências:
