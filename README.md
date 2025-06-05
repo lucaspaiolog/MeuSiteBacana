@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <img src="caminho/para/screenshot.png" alt="Screenshot do site" width="70%">
+  <img src="https://i.imgur.com/Be9FqyQ.png" alt="Screenshot do site" width="70%">
 </p>
 
 ---
