@@ -25,7 +25,7 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web III** do c
 
 ## 🚀 Como executar o projeto
 
-<n> 1. Crie um ambiente virtual: </n>
+1. Crie um ambiente virtual:
 
    python3 -m venv ambienteVirtual  <--- Em todos os comandos se atentar a qual versão do python você tem instalada na sua máquina (python, python3 e py podem funcionar)
    ambienteVirtual\Scripts\activate
@@ -53,13 +53,3 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web III** do c
    
 
 6. Acesse no navegador: `http://127.0.0.1:8000/`
-
-## Funcionalidades
-
-- Cadastro/Login de usuários (com preenchimento automático de CEP via API ViaCEP).
-- CRUD de usuários (somente usuários autenticados podem acessar).
-- CRUD de produtos (com upload de imagem, lista em cards, edição e exclusão).
-- Seção “Mais Vendidos” e “Produtos Internacionais” na página de produtos.
-- Checkout para compra de produtos (número de cartão, validade, CVV) e registro em model `Venda`.
-- Identidade visual em verde/cinza (CSS personalizado + Bootstrap 5).
-- Autenticação via sessões Django (login/logout). 
