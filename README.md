@@ -40,13 +40,13 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web III** do c
 
 3. Aplique as migrações:
   
-   python manage.py makemigrations<br>
-   python manage.py migrate
+   python3 manage.py makemigrations<br>
+   python3 manage.py migrate
  
 
 4. Crie um superusuário (opcional, para acessar o admin):
    
-   python manage.py createsuperuser
+   python3 manage.py createsuperuser
    
 
 5. Rode o servidor:
