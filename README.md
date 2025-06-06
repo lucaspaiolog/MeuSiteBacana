@@ -35,7 +35,7 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web III** do c
 2. Instale as dependências:
  
    python3 -m pip install django<br>
-   python3 -m pip install pillow 
+   python3 -m pip install pillow<br> 
    python3 -m pip install requests
 
 3. Aplique as migrações:
