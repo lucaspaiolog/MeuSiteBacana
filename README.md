@@ -30,6 +30,7 @@ Este projeto foi desenvolvido para a disciplina **Desenvolvimento Web III** do c
 1. Crie um ambiente virtual:
 
    python3 -m venv ambienteVirtual<br>
+   ---> Caso não permita ativar, rodar no powershell: Set-ExecutionPolicy RemoteSigned
    ambienteVirtual\Scripts\activate
 
 2. Instale as dependências:
